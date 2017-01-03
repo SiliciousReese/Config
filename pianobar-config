@@ -1,0 +1,8 @@
+#control_proxy = http://127.0.0.1:8123/
+#proxy = http://127.0.0.1:8123/
+audio_quality = medium
+#password = "password"
+password_command = gpg --decrypt ~/.config/pianobar/password
+#tls_fingerprint = D9980BA2CC0F97BB03822C6211EAEA4A06EEF427
+user = danieldarnell8188@yahoo.com
+volume = -10
