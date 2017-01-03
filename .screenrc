@@ -1,0 +1,18 @@
+# Turn off startup messages
+startup_message off
+# 256 colors
+term xterm-256color
+
+defscrollback 20000
+
+## Start at window 1
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10                                                            
+screen 1
+
+# Informative statusbar
+hardstatus off
+hardstatus alwayslastline '%{= dG}[%= %{= dw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{M} %C:%s %{g}]'
+
+logfile /home/daniel/screen-log
