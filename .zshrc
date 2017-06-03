@@ -35,11 +35,20 @@ PS1="%B%F{22}$schars[333]$schars[262]$schars[261]$schars[260]%B%F{white}%K{22}%n
 export VISUAL="vim"
 
 ## Functions
+
 # Quickly Clear scrollback buffer. Useless with my terminal emulator, but I
 # want to have it handy just in case. This took me quite a while to find, and
 # it was really useful before I started using suckless' simple terminal.
+#
 #cls() {
 #    echo -ne '\033x'
+#}
+
+# Command to ssh to an ip address and create socks5 tunnel. The default Ip
+# address chosen here is somewhat random, and probably maps to some public ISP.
+#
+#sshHomeProxy() {
+#    ssh -D 9053 98.25.97.159
 #}
 
 # Use pacman completions for yaourt
