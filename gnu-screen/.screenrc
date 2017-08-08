@@ -5,6 +5,10 @@ term xterm-256color
 
 defscrollback 20000
 
+# For running screen inside of screen. Also, the status line seems to confuse
+# vim, so I disable that on my remote servers.
+#escape ^Bb
+
 ## Start at window 1
 bind c screen 1
 bind ^c screen 1

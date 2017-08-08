@@ -35,20 +35,44 @@ PS1="%B%F{22}$schars[333]$schars[262]$schars[261]$schars[260]%B%F{white}%K{22}%n
 export VISUAL="vim"
 
 ## Functions
-
 # Quickly Clear scrollback buffer. Useless with my terminal emulator, but I
 # want to have it handy just in case. This took me quite a while to find, and
 # it was really useful before I started using suckless' simple terminal.
-#
 #cls() {
 #    echo -ne '\033x'
 #}
 
-# Command to ssh to an ip address and create socks5 tunnel. The default Ip
-# address chosen here is somewhat random, and probably maps to some public ISP.
 #
-#sshHomeProxy() {
-#    ssh -D 9053 98.25.97.159
+mnt-sky() {
+    sudo mount -t cifs -o guest //SKY/public /mnt/sky
+}
+
+#
+#mnt-dan() {
+#    sudo mount -t cifs -o guest //DAN/danpublic /mnt/dan
+#}
+
+#
+curl-mnt-phone() {
+    curlftpfs ftp://192.168.1.8:$1 /mnt/phone
+}
+
+# Helps me remember how to copy an ssh key. 
+#ssh-start-using-hostkey() {
+#    # First make sure sshd is configured correctly, then copy remote key to the
+#    # server.
+#    scp remote-client-user@remote-client-hostname:~/private-key-file server-location   
+#
+#    # make sure the file exists.
+#    mkdir -p ~/.ssh
+#    touch ~/.ssh/authorized_keys
+#
+#    # Copy the key to the keyfile and check that the keyfile is correct.
+#    cat ~/server-location >> ~/.ssh/authorized_keys
+#    more ~/.ssh/authorized_keys
+#
+#    # If the keyfile is correct delete the old file
+#    rm ~/server-location
 #}
 
 # Use pacman completions for yaourt
@@ -65,3 +89,5 @@ alias less="less -R"
 alias info="info --vi-keys "
 # Vim for life
 alias view="vim -R"
+# Screen autoresume
+#alias screen="screen -R -D"
