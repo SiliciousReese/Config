@@ -75,6 +75,12 @@ curl-mnt-phone() {
 #    rm ~/server-location
 #}
 
+# Use xrandr to set the brightness of the monitor connected to display port
+# output 2.
+set-dp2-brightness() {
+    xrandr --output DP2 --brightness ${1:-1.0}
+}
+
 # Use pacman completions for yaourt
 compdef yaourt=pacman
 
@@ -91,3 +97,5 @@ alias info="info --vi-keys "
 alias view="vim -R"
 # Screen autoresume
 #alias screen="screen -R -D"
+# Ssh quicker
+alias ssh-="ssh proxy-home"
