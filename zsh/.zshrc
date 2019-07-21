@@ -81,14 +81,23 @@ set-dp2-brightness() {
     xrandr --output DP2 --brightness ${1:-1.0}
 }
 
+set-lcd-brightness() {
+    brightness=$1
+    if (( brightness == -1 ));
+    then
+        brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+    fi
+    echo $brightness | sudo tee /sys/class/backlight/intel_backlight/brightness
+}
+
 # Use pacman completions for yaourt
-compdef yaourt=pacman
+compdef yay=pacman
 
 ## Aliases
 # Makes sudo accept aliases
 alias sudo="sudo "
 # Shorter command for package management
-alias px="yaourt "
+alias px="yay "
 # Always allow colors in less
 alias less="less -R"
 # Vi keybinds for info

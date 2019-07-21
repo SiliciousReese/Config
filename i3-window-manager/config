@@ -23,7 +23,7 @@ font pango:DejaVu Sans Mono 12
 #floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st -e screen -DR
+bindsym $mod+Return exec st -e screen -RR -D
 
 # Start screensaver or lock screen 
 bindsym $mod+w exec xscreensaver-command -activate
@@ -163,6 +163,8 @@ new_window none
 assign [class="xterm-256color"] 1
 assign [class="conky"] 3
 
+exec xset s off 
+exec xscreensaver -nosplash
 exec st -e screen 
 #exec firefox
 exec conky
