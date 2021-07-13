@@ -22,11 +22,12 @@ Plugin 'flazz/vim-colorschemes'
 
 " Code completion. Too slow for me to use frequently.
 " Bundle 'Valloric/YouCompleteMe'
+
 Plugin 'Valloric/ListToggle'
 Plugin 'scrooloose/syntastic'
 
 " Python
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 
 " Web Development
 Plugin 'mattn/emmet-vim'
@@ -74,6 +75,12 @@ filetype plugin indent on    " required
 "let g:syntastic_always_populate_loc_list = 1
 "let g:ycm_collect_identifiers_from_tags_files = 1
 "set tags+=./.tags
+
+" Syntastic
+let g:syntastic_mode_map = {
+    \       "mode": "passive",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": [] }
 
 " Pymode
 let g:pymode = 1
@@ -285,7 +292,7 @@ set background=dark " When set to "dark", Vim will try to use colors that look
 " Any other value is illegal.
 
 " Makes the monitor taste better for my eyes
-colorscheme CandyPaper
+colorscheme Tomorrow-Night
 
 " I prefer many buffers to one tab.
 set hidden
@@ -310,3 +317,8 @@ set lazyredraw
 set complete=.,w,b,u,t,i
 " Options for insert-mode completion
 set completeopt="longest"
+
+" vim's parenthesis highlighting causes screen corruption when vim is running
+" " inside GNU screen or tmux?
+let loaded_matchparen = 1
+

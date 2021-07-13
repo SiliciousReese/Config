@@ -28,16 +28,20 @@ prompt_special_chars
 
 # This was mostly taken from one of the sample prompts, with the colors
 # changed. I find it useful to change the prompt a little on my remote servers
-# so I remember which one I'm in.
+# so I remember which one I'm in. Usually I just change the red to a different
+# color such as green.
 PS1="%B%F{22}$schars[333]$schars[262]$schars[261]$schars[260]%B%F{white}%K{22}%n@%m%b%k%f%F{22}%K{22}$schars[260]$schars[261]$schars[262]$schars[333]%b%f%k%F{22}%K{black}$schars[333]$schars[262]$schars[261]$schars[260]%B%F{white}%K{black} %D{%a %b %d} %D{%I:%M:%S%P}$prompt_newline%B%F{red}%K{black}%d>%b%f%k " 
 
 # Use vim for editing files
 export VISUAL="vim"
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
 ## Functions
 # Quickly Clear scrollback buffer. Useless with my terminal emulator, but I
 # want to have it handy just in case. This took me quite a while to find, and
-# it was really useful before I started using suckless' simple terminal.
+# it was really useful before I started using my current terminal.
 #cls() {
 #    echo -ne '\033x'
 #}
@@ -90,6 +94,27 @@ set-lcd-brightness() {
     echo $brightness | sudo tee /sys/class/backlight/intel_backlight/brightness
 }
 
+# Suspend and lock. Shortcut for security. This isn't perfect since there is a
+# short period when the computer wakes up before the computer locks, but should
+# be effective in most cases. Optimally there would be suspend functionality
+# built in to xscreensaver.
+slock() {
+    xscreensaver-command -lock; systemctl suspend;
+}
+
+## Miscellaneous commands to remember
+#
+#opensc/pcscd
+#
+#systemctl start pcscd.service
+#opensc-tool --list-readers
+#opensc-tool --reader 0 --name
+
+# Nmap tools
+#
+# scan local net for smb/samba shares
+#nmap -p 445 192.168.1.1/24
+
 # Use pacman completions for yaourt
 compdef yay=pacman
 
@@ -108,3 +133,23 @@ alias view="vim -R"
 #alias screen="screen -R -D"
 # Ssh quicker
 alias ssh-="ssh proxy-home"
+
+## Notes for uncommon commands
+
+# rdp
+#remmina
+
+# redshift is a program to reduce blue light from your screen at night
+#redshift
+
+# ruby source
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Set keyboard to map to phoenetic russian on caps lock
+#
+#setxkbmap -model pc105 -layout us,ru -variant ,phonetic -option \ 
+#   grp:caps_toggle
+# 
+# On screen keyboard
+#
+#onboard
